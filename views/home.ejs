@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <h1>Contact List</h1>
+    <ul>
+    <% for(let i of contact_list){ %>
+        <li>
+            <div class="p-elements">
+            <p><%= i.name %></p>
+            <p><%= i.phoneNo %></p>
+            </div>
+            <div class="edit">
+                <a href="/update-contact/?id=<%= i._id %>">
+                    <i><button>edit</button></i>
+                </a>
+            </div>
+            <div class="delete">
+                <a href="/delete-contact/?id=<%= i._id %>">
+                    <i><button>del</button></i>
+                </a>
+            </div>
+        </li>
+    <% } %>
+    </ul>
+    <form action="/create-contact" method="post">
+        <input type="text" name="name" placeholder="enter your name" required>
+        <input type="number" name="phoneNo" placeholder="enter phoneno" required>
+        <button type="submit">Add Contact</button>
+    </form>
+    <script src="/js/home.js"></script>
+</body>
+</html>

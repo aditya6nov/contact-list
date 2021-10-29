@@ -1,0 +1,1 @@
+console.log('this is you script file of home page');
